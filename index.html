@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dieta e allenamento</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f3b2d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Schede">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icona-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100dvh; font-family: Outfit, system-ui, sans-serif; background: #f4f2ec; color: #1e2420;
+    display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .box { max-width: 380px; width: 100%; text-align: center; }
+  img { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 16px 34px -18px rgba(30, 36, 32, .6); }
+  h1 { font-size: 28px; margin: 18px 0 6px; }
+  p { color: #686d66; line-height: 1.45; margin: 0 0 22px; }
+  a.btn { display: block; background: #1f3b2d; color: #fff; text-decoration: none; font-weight: 700; font-size: 17px; padding: 17px; border-radius: 18px; }
+  ol { text-align: left; color: #1e2420; background: #fff; border-radius: 20px; padding: 18px 18px 18px 38px; margin: 22px 0 0; line-height: 1.6; }
+  .nascosto { display: none; }
+</style>
+</head>
+<body>
+<div class="box">
+  <img src="icona-512.png" alt="Icona Dieta e allenamento">
+  <h1>Dieta e allenamento</h1>
+  <p id="attesa" class="nascosto">Apro l'app…</p>
+  <div id="istruzioni">
+    <p>Le schede del nutrizionista e del coach, sempre a portata di mano.</p>
+    <a class="btn" id="apri" href="#">Apri l'app</a>
+    <ol>
+      <li>Tocca <b>Condividi</b> (il quadrato con la freccia) in basso.</li>
+      <li>Scegli <b>Aggiungi alla schermata Home</b>.</li>
+      <li>Premi <b>Aggiungi</b>: comparirà l'icona con la mela e il manubrio.</li>
+    </ol>
+  </div>
+</div>
+<script>
+  // L'app vera vive su Google: questa pagina serve solo a dare l'icona alla schermata Home.
+  var APP = 'https://script.google.com/macros/s/AKfycbyaKE5fYRVbZwuXnRJuLtpOkrnjPqID5NlBk-fA0at93aZXCYV3EG7i2jAinV4ps3xV/exec';
+  document.getElementById('apri').href = APP;
+  // Salta all'app solo quando la pagina è aperta dall'icona sulla Home dell'iPhone.
+  if (window.navigator.standalone === true) {
+    document.getElementById('istruzioni').classList.add('nascosto');
+    document.getElementById('attesa').classList.remove('nascosto');
+    location.replace(APP);
+  }
+</script>
+</body>
+</html>
