@@ -1,7 +1,7 @@
 {
   "name": "Dieta e allenamento",
   "short_name": "Schede",
-  "start_url": "./",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#f4f2ec",
   "theme_color": "#1f3b2d",
