@@ -35,6 +35,7 @@
   <div id="istruzioni">
     <p>Le schede del nutrizionista e del coach, sempre a portata di mano.</p>
     <a class="btn" id="apri" href="#">Apri l'app</a>
+    <p id="giusto" class="nascosto" style="background:#e3eee6;color:#1f3b2d;border-radius:14px;padding:12px;margin:0">Sei sulla pagina giusta: <b id="dove"></b>.<br>Ora aggiungila alla Home da qui.</p>
     <ol>
       <li>Tocca <b>Condividi</b> (il quadrato con la freccia) in basso.</li>
       <li>Scegli <b>Aggiungi alla schermata Home</b>.</li>
@@ -51,6 +52,11 @@
     document.getElementById('istruzioni').classList.add('nascosto');
     document.getElementById('attesa').classList.remove('nascosto');
     location.replace(APP);
+  } else if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    // Su iPhone in Safari niente pulsante: l'icona va aggiunta da questa pagina, non dall'app di Google.
+    document.getElementById('apri').classList.add('nascosto');
+    document.getElementById('dove').textContent = location.host;
+    document.getElementById('giusto').classList.remove('nascosto');
   }
 </script>
 </body>
